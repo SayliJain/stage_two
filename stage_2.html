@@ -1,0 +1,65 @@
+<!-- IGNITION 2023 -->
+
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "stage_css.css">
+    <title>Stage ?</title>
+</head>
+<body>
+    <canvas id = "Matrix"></canvas>
+    <script src = "matrix_effect.js"></script>
+    <div id = "blackDivBox" style = "top: 38%;"> 
+        <div class = "innerDiv">
+            <p>
+                <img id = "audioTrigger" src = "noclueshere.png" alt = "ok buddy">
+            </p>
+        </div>
+        <div class = "innerDiv">
+            <p>
+                <img src = "noclueshereeither.png" alt = "ok buddy">
+            </p>
+        </div>
+    </div>
+    <div id = "blackDivBox" style = "height: 100; width: 1200px; top: 80%">
+        <p style = "color: white; font-size: 50px;">"Zero would be nice"</p>
+    </div>
+    <audio autoplay>
+        <source src = "someaudio.mp3" type = "audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        // Get a reference to the image element
+        const image = document.getElementById('audioTrigger');
+    
+        // Get a reference to the audio element
+        const audio = document.querySelector('audio');
+    
+        // Track the state of the audio
+        let isPlaying = false;
+    
+        // Add a click event listener to the image
+        image.addEventListener('click', function () {
+            if (!isPlaying) {
+                // If not playing, start playing from the beginning
+                audio.play();
+                isPlaying = true;
+            } else {
+                // If playing, pause the audio and reset it to the beginning
+                audio.pause();
+                audio.currentTime = 0;
+                isPlaying = false;
+            }
+        });
+    
+        // Add an event listener to the audio element to update isPlaying when audio ends
+        audio.addEventListener('ended', function () {
+            isPlaying = false;
+        });
+    </script>   
+</body>
+</html>
+
+<!--THERE'S SOME AUDIO SOMEWHERE-->
